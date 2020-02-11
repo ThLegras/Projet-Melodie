@@ -1,0 +1,22 @@
+# 
+# Wavefront material file
+# Converted by the DEEP Exploration  3.5.10.1242
+# Right Hemisphere, LTD
+# http://www.righthemisphere.com/
+# 
+
+newmtl ____Default
+Ka 0.588235 0.588235 0.588235
+Kd 0.588235 0.588235 0.588235
+Ks 0.9 0.9 0.9
+illum 2
+Ns 6.9644
+map_Kd txPaloMaracas.jpg
+
+newmtl ____Default0
+Ka 0.647059 0.298039 0.0117647
+Kd 0.647059 0.298039 0.0117647
+Ks 0.9 0.9 0.9
+illum 2
+Ns 39.3966
+map_Kd txMaracas.jpg
