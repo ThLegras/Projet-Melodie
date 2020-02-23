@@ -54,7 +54,7 @@ public class ReversedBubble : MonoBehaviour
         }
         intensite = 10*Mathf.Log10(volume / (4 * Mathf.PI / Mathf.Pow(transform.localScale.x, 2f)));
         time = transform.root.gameObject.GetComponent<Instrument>().time;
-
+        
         transform.localScale = new Vector3((transform.lossyScale.x + time) / origineScale, (transform.lossyScale.x + time) / origineScale, (transform.lossyScale.x + time) / origineScale);
         if ((origineScale * transform.localScale.x) >= 250 || (origineScale * transform.localScale.x) < 1)
         {

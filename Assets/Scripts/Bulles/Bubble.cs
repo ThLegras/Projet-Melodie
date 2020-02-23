@@ -24,7 +24,7 @@ public class Bubble : MonoBehaviour
     {
         origineScale = Mathf.Max(transform.parent.transform.lossyScale.x, transform.parent.transform.lossyScale.y, transform.parent.transform.lossyScale.z);
         transform.localScale = new Vector3(1 / origineScale, 1 / origineScale, 1/ origineScale);
-        print(transform.lossyScale);
+
         time = transform.root.gameObject.GetComponent<Instrument>().time;
         volume = transform.root.gameObject.GetComponent<Instrument>().volume;
         rend = GetComponent<Renderer>();
@@ -33,12 +33,11 @@ public class Bubble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if(transform.localScale.x> 1)
         {
             volume = volume / (4 * Mathf.PI * (float)Mathf.Pow((float)transform.localScale.x, 2f));
         }
-                intensite = 10 * Mathf.Log10(volume);
+        intensite = 10 * Mathf.Log10(volume);
         time = transform.root.gameObject.GetComponent<Instrument>().time;
         transform.localScale = new Vector3((transform.lossyScale.x + time)/ origineScale, (transform.lossyScale.x + time) / origineScale, (transform.lossyScale.x + time) / origineScale);
         if ((origineScale * transform.localScale.x) >= 250 || (origineScale * transform.localScale.x) < 1)
@@ -54,11 +53,8 @@ public class Bubble : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Player")
-        {
-            myAudioSource.clip = son;
-            myAudioSource.Play();
-        }
-        
+        myAudioSource.clip = son;
+        myAudioSource.Play();
+        Debug.Log("PLAY SOUND");
     }
 }

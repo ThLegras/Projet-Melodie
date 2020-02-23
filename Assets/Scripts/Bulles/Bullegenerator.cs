@@ -29,7 +29,7 @@ public class Bullegenerator : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GameObject sphere = GameObject.Instantiate(GameObject.Find("Sphere"), transform);
+        GameObject sphere = GameObject.Instantiate(GameObject.Find("BubbleExample"), transform);
         GameObject scr = new GameObject("Bubble.cs");
         sphere.AddComponent<Bubble>();
         sphere.transform.SetParent(transform.root.transform);//on désigne le cube comme parent de l'objet
@@ -43,7 +43,7 @@ public class Bullegenerator : MonoBehaviour
 
 
 
-        GameObject invSphere = GameObject.Instantiate(GameObject.Find("ReversedSphere"), transform);
+        GameObject invSphere = GameObject.Instantiate(GameObject.Find("BubbleExampleReverse"), transform);
         invSphere.AddComponent<ReversedBubble>();
         invSphere.transform.SetParent(transform.root.transform);//on désigne le cube comme parent de l'objet
         invSphere.transform.GetComponent<Renderer>().material = mat;
