@@ -30,7 +30,6 @@ public class Bullegenerator : MonoBehaviour
     private void OnMouseDown()
     {
         GameObject sphere = GameObject.Instantiate(GameObject.Find("BubbleExample"), transform);
-        GameObject scr = new GameObject("Bubble.cs");
         sphere.AddComponent<Bubble>();
         sphere.transform.SetParent(transform.root.transform);//on désigne le cube comme parent de l'objet
         sphere.transform.GetComponent<Renderer>().material = mat;

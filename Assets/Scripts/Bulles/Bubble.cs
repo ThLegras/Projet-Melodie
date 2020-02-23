@@ -55,6 +55,5 @@ public class Bubble : MonoBehaviour
     {
         myAudioSource.clip = son;
         myAudioSource.Play();
-        Debug.Log("PLAY SOUND");
     }
 }
