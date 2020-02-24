@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: tileable_wood_texture_by_ftisis_stock-1
+  m_Name: Ceiling_Drop_Tiles_001_basecolor
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 487fbe2c886c10c4fb3e219edac010c2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0b510b94f30691545bad85845f700957, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -37,22 +37,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 40, y: 20}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a0e57a9ad6e90a6478a588bc222da613, type: 3}
-        m_Scale: {x: 40, y: 20}
+        m_Texture: {fileID: 2800000, guid: 15dcde49dd4ed654da1c6d53357b16bf, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: c98061dc44861924b878665b402aef80, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9263b6a00deae4143a4243e9ed7a6961, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: b15f9c351d0e35f4c8a0be8e5ff4bbd4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1e93879bffddb804db90325b7231d963, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
