@@ -10,13 +10,19 @@ public class Bullegenerator : MonoBehaviour
     public AudioClip son;// son qui doit être joué
     public float note;
     public Material mat;
+    float m_Hue;
+    float m_Saturation;
+    float m_Value;
     // Start is called before the first frame update
     void Start()
     {
         objects = new List<GameObject>();
         renderer = GetComponent<Renderer>();
         temp = renderer.material.color;
-        note = 50;        
+        m_Hue = (float)note / transform.root.GetComponent<Instrument>().notes;
+        Debug.Log(m_Hue);
+        m_Saturation = 0.8f;
+        m_Value = 0.8f;
     }
 
 
@@ -32,7 +38,7 @@ public class Bullegenerator : MonoBehaviour
         GameObject sphere = GameObject.Instantiate(GameObject.Find("BubbleExample"), transform);
         sphere.AddComponent<Bubble>();
         sphere.transform.SetParent(transform.root.transform);//on désigne le cube comme parent de l'objet
-        sphere.transform.GetComponent<Renderer>().material = mat;
+        sphere.transform.GetComponent<Renderer>().material.color = Color.HSVToRGB(m_Hue, m_Saturation, m_Value);
         sphere.gameObject.GetComponent<Bubble>().myAudioSource = GetComponent<AudioSource>();
         sphere.gameObject.GetComponent<Bubble>().note = note;
         sphere.gameObject.GetComponent<Bubble>().son = son;
@@ -45,7 +51,7 @@ public class Bullegenerator : MonoBehaviour
         GameObject invSphere = GameObject.Instantiate(GameObject.Find("BubbleExampleReverse"), transform);
         invSphere.AddComponent<ReversedBubble>();
         invSphere.transform.SetParent(transform.root.transform);//on désigne le cube comme parent de l'objet
-        invSphere.transform.GetComponent<Renderer>().material = mat;
+        invSphere.transform.GetComponent<Renderer>().material.color = Color.HSVToRGB(m_Hue, m_Saturation, m_Value);
         invSphere.transform.position = transform.position;
         objects.Add(invSphere);
     }

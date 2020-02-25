@@ -6,6 +6,7 @@ public class Instrument : MonoBehaviour
 {
     public float time;
     public int volume;//puissance sonore de la source du son en mW
+    public int notes; //nombre de notes jouables sur l'instrument
     // Start is called before the first frame update
     void Start()
     {
