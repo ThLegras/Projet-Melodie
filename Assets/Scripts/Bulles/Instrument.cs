@@ -27,13 +27,13 @@ public class Instrument : MonoBehaviour
 
         if(touchPadValue != Vector2.zero)
         {
-            if((touchPadValue[0]- previous_pos[0])<0&& touchPadValue[1] > 0)
+            if(((touchPadValue[0]- previous_pos[0])<0 && touchPadValue[1] > 0) || ((touchPadValue[0] - previous_pos[0]) > 0 && touchPadValue[1] < 0))
             {
-                time -= 0.1f;
+                time -= 0.01f;
             }
-            else
+            else if (((touchPadValue[0] - previous_pos[0]) > 0 && touchPadValue[1] > 0) || ((touchPadValue[0] - previous_pos[0]) < 0 && touchPadValue[1] < 0))
             {
-                time += 0.1f;
+                time += 0.01f;
             }
             Debug.Log(touchPadValue);
         }
