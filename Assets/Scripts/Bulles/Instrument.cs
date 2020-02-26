@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class Instrument : MonoBehaviour
 {
@@ -15,9 +16,16 @@ public class Instrument : MonoBehaviour
         volume = 0;
     }
 
+    public SteamVR_Action_Vector2 touchPadAction;
+
     // Update is called once per frame
     void Update()
     {
-        
+        Vector2 touchPadValue = touchPadAction.GetAxis(SteamVR_Input_Sources.Any);
+
+        if(touchPadValue != Vector2.zero)
+        {
+            Debug.Log(touchPadValue);
+        }
     }
 }
