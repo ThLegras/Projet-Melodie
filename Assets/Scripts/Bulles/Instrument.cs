@@ -10,11 +10,12 @@ public class Instrument : MonoBehaviour
     public int notes; //nombre de notes jouables sur l'instrument
     public Vector2 previous_pos;//acienne position du doigt sur le touchpad
     float LastTime;
-
+    float number;
     // Start is called before the first frame update
     void Start()
     {
         time = 1;
+        number = 0.0f;
         previous_pos = new Vector2(1.0f, 0.0f);//position initiale de notre doigt
         volume = 0;
         LastTime = Time.time;
@@ -42,6 +43,7 @@ public class Instrument : MonoBehaviour
                 Debug.Log(touchPadValue);
             }
         }
-        
+        number = Input.GetAxis("Mouse ScrollWheel");
+        time += number;
     }
 }

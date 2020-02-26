@@ -16,12 +16,14 @@ public class Bubble : MonoBehaviour
     public AudioSource myAudioSource;
     //static float maxIntensite = 90f; //volume max en bD
     float[] freqData = new float[128];
+    bool destroyed;
     // Start is called before the first frame update
 
     float origineScale;
 
     void Start()
     {
+        destroyed = false;
         origineScale = Mathf.Max(transform.parent.transform.lossyScale.x, transform.parent.transform.lossyScale.y, transform.parent.transform.lossyScale.z);
         transform.localScale = new Vector3(1 / origineScale, 1 / origineScale, 1/ origineScale);
 
@@ -33,16 +35,27 @@ public class Bubble : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.localScale.x> 1)
+        if (transform.localScale.x> 1)
         {
             volume = volume / (4 * Mathf.PI * (float)Mathf.Pow((float)transform.localScale.x, 2f));
         }
         intensite = 10 * Mathf.Log10(volume);
         time = transform.root.gameObject.GetComponent<Instrument>().time;
-        transform.localScale = new Vector3((transform.lossyScale.x + time)/ origineScale, (transform.lossyScale.x + time) / origineScale, (transform.lossyScale.x + time) / origineScale);
-        if ((origineScale * transform.localScale.x) >= 250 || (origineScale * transform.localScale.x) < 1)
+        if (destroyed)
         {
-            Destroy(this.gameObject, 1.0f);
+            Debug.Log("coucou");
+            transform.localScale = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            transform.localScale = new Vector3((transform.lossyScale.x + time) / origineScale, (transform.lossyScale.x + time) / origineScale, (transform.lossyScale.x + time) / origineScale);
+        }
+        if (((origineScale * transform.localScale.x) >= 250 || transform.lossyScale.x < 0.8) && !destroyed)
+        {
+            Debug.Log("local scale : " + (float)transform.localScale.x);
+            Debug.Log("lossy scale : " + (float)transform.lossyScale.x);
+            destroyed = true;
+            Destroy(this.gameObject);
         }
         
 
