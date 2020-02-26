@@ -33,11 +33,11 @@ public class Instrument : MonoBehaviour
             {
                 if (((touchPadValue[0] - previous_pos[0]) < 0 && touchPadValue[1] > 0) || ((touchPadValue[0] - previous_pos[0]) > 0 && touchPadValue[1] < 0))
                 {
-                    time -= 0.01f;
+                    time -= 0.005f;
                 }
-                else if (((touchPadValue[0] - previous_pos[0]) > 0 && touchPadValue[1] > 0) || ((touchPadValue[0] - previous_pos[0]) < 0 && touchPadValue[1] < 0))
+                if (((touchPadValue[0] - previous_pos[0]) > 0 && touchPadValue[1] > 0) || ((touchPadValue[0] - previous_pos[0]) < 0 && touchPadValue[1] < 0))
                 {
-                    time += 0.01f;
+                    time += 0.005f;
                 }
                 Debug.Log(touchPadValue);
             }
