@@ -16,6 +16,7 @@ public class Bullegenerator : MonoBehaviour
     float m_Hue;
     float m_Saturation;
     float m_Value;
+    bool alreadyTrigger = false;
 
     // Start is called before the first frame update
     void Start()
@@ -66,10 +67,19 @@ public class Bullegenerator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SaveBubble save = new SaveBubble(transform, Color.HSVToRGB(m_Hue, m_Saturation, m_Value), GetComponent<AudioSource>(), note, son, Time.time);
-        if (Bullegenerator.saveBubblesBool)
-            Bullegenerator.allBubblesCreated.Add(save);
-        Bullegenerator.CreateBubble(save);
+        if (!this.alreadyTrigger)
+        {
+            this.alreadyTrigger = true;
+            SaveBubble save = new SaveBubble(transform, Color.HSVToRGB(m_Hue, m_Saturation, m_Value), GetComponent<AudioSource>(), note, son, Time.time);
+            if (Bullegenerator.saveBubblesBool)
+                Bullegenerator.allBubblesCreated.Add(save);
+            Bullegenerator.CreateBubble(save);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        this.alreadyTrigger = false;
     }
 
     /*private void OnHandOverBegin()
