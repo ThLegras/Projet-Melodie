@@ -5,6 +5,8 @@ using static Bullegenerator;
 
 public class ReplaySounds : MonoBehaviour
 {
+    bool alreadyTrigger = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,16 @@ public class ReplaySounds : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(ReplayAllBubbles());
+        if(!this.alreadyTrigger)
+        {
+            StartCoroutine(ReplayAllBubbles());
+            this.alreadyTrigger = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        this.alreadyTrigger = false;
     }
 
     public void OnMouseDown()
