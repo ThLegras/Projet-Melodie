@@ -9,6 +9,7 @@ public class Instrument : MonoBehaviour
     public int volume;//puissance sonore de la source du son en mW
     public int notes; //nombre de notes jouables sur l'instrument
     public Vector2 previous_pos;//acienne position du doigt sur le touchpad
+    float LastTime;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class Instrument : MonoBehaviour
         time = 1;
         previous_pos = new Vector2(1.0f, 0.0f);//position initiale de notre doigt
         volume = 0;
+        LastTime = Time.time;
     }
 
     public SteamVR_Action_Vector2 touchPadAction;
@@ -25,17 +27,21 @@ public class Instrument : MonoBehaviour
     {
         Vector2 touchPadValue = touchPadAction.GetAxis(SteamVR_Input_Sources.Any);
 
-        if(touchPadValue != Vector2.zero)
+        if(LastTime - Time.time < 0.1f)
         {
-            if(((touchPadValue[0]- previous_pos[0])<0 && touchPadValue[1] > 0) || ((touchPadValue[0] - previous_pos[0]) > 0 && touchPadValue[1] < 0))
+            if (touchPadValue != Vector2.zero)
             {
-                time -= 0.01f;
+                if (((touchPadValue[0] - previous_pos[0]) < 0 && touchPadValue[1] > 0) || ((touchPadValue[0] - previous_pos[0]) > 0 && touchPadValue[1] < 0))
+                {
+                    time -= 0.01f;
+                }
+                else if (((touchPadValue[0] - previous_pos[0]) > 0 && touchPadValue[1] > 0) || ((touchPadValue[0] - previous_pos[0]) < 0 && touchPadValue[1] < 0))
+                {
+                    time += 0.01f;
+                }
+                Debug.Log(touchPadValue);
             }
-            else if (((touchPadValue[0] - previous_pos[0]) > 0 && touchPadValue[1] > 0) || ((touchPadValue[0] - previous_pos[0]) < 0 && touchPadValue[1] < 0))
-            {
-                time += 0.01f;
-            }
-            Debug.Log(touchPadValue);
         }
+        
     }
 }
