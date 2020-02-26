@@ -69,4 +69,10 @@ public class Bubble : MonoBehaviour
         myAudioSource.clip = son;
         myAudioSource.Play();
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        myAudioSource.clip = son;
+        myAudioSource.Play();
+    }
 }
