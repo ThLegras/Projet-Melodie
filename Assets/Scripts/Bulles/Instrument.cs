@@ -19,7 +19,6 @@ public class Instrument : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(time);
         time = GameObject.Find("clock").transform.GetComponent<Clock>().clockSpeed;
     }
 }
